@@ -4,6 +4,7 @@ from utils.openai_helper import chat_completion ,transcript_audio
 from utils.twilio_helper import send_twilio_message, send_twilio_photo
 from utils.campaigns import *
 from utils.chating_with_user import ret_chat
+from utils.campaigns import run_campaign
 import time
 app =Flask(__name__)
 
@@ -23,9 +24,13 @@ def handle_twilio():
     #     send_twilio_message(response, sender_id)
 
     query = data['Body']
-    response = ret_chat(query)
-    print(response)
-    send_twilio_message(response, sender_id)
+    if query=='run camp':
+        run_campaign()
+
+    else:
+        response = ret_chat(query)
+        print(response)
+        send_twilio_message(response, sender_id)
 
     return 'OK', 200
 
