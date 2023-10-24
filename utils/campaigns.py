@@ -98,7 +98,7 @@ links={'HL':'https://i.ibb.co/ZGLCJV9/idfc-first-bank-home-loan.png',
        'VH':'https://i.ibb.co/YXBK53m/idfc-first-bank-car-loan.jpg'}
 
 
-df = pd.read_excel('list.xlsx')
+df = pd.read_excel('utils/list.xlsx')
 def run_campaign():
        for index, row in df.iterrows():
               # print(row['Mobile number'])
